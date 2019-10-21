@@ -78,7 +78,7 @@ class Room(core_models.TimeStampedModel):
     name = models.CharField(max_length=140)
     description = models.TextField()
     country = CountryField()
-    city = models.CharField(max_length=80)
+    city = models.CharField(max_length=80)  # city도 country처럼 미리 만들어진 셋을 가져올 수 있다?
     address = models.CharField(max_length=140)
     price = models.IntegerField()
 
