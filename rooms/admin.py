@@ -68,10 +68,9 @@ class RoomAdmin(admin.ModelAdmin):
 
     # 함수 구현에서 self는 Roomadmin 클래스이고 obj는 room이다.
     def count_amenities(self, obj):
-        print(obj.amenities.all())
-        return "Potato"
+        return obj.amenities.count()
 
-    count_amenities.short_description = "hello sexy!"
+    # count_amenities.short_description = "hello sexy!"
 
 
 @admin.register(models.Photo)
