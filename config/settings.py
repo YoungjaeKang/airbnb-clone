@@ -23,6 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = "gy%o8&*4&li4p&pxqxqe!!(k*_k6=r7dh=2!bvx=r%+5@f*6mb"
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG TRUE일 경우 에러가 떴을 때 나오는 노란 설명이다.
+# 배포하고 나면 보여져서는 안된다.
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -131,3 +133,7 @@ STATIC_URL = "/static/"
 
 AUTH_USER_MODEL = "users.User"  # 내가 직접 만든 USER MODEL을 쓰기 위해 이 설정을 해줬다.
 
+# 사진을 저장하기 위한 경로를 설정해 준다.
+MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
+
+MEDIA_URL = "/media/"

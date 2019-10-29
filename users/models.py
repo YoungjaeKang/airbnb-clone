@@ -35,7 +35,7 @@ class User(AbstractUser):
 
     # class 선언
     avatar = models.ImageField(
-        blank=True
+        upload_to="avatars", blank=True
     )  # null은 db에서 사용되는 것이고 web form에서는 blank를 설정해야 한다.
     gender = models.CharField(choices=GENDER_CHOICES, max_length=10, blank=True)
     bio = models.TextField(blank=True)

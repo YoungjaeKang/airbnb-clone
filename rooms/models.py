@@ -64,7 +64,7 @@ class Photo(core_models.TimeStampedModel):
     """ Photo Model Definition """
 
     caption = models.CharField(max_length=80)
-    file = models.ImageField()
+    file = models.ImageField(upload_to="room_photos")
     room = models.ForeignKey("Room", related_name="photos", on_delete=models.CASCADE)
 
     def __str__(self):
@@ -112,6 +112,13 @@ class Room(core_models.TimeStampedModel):
     # 사용자 이름으로 return해준다.
     def __str__(self):
         return self.name
+
+    # 어드민이나 유저가 저장할 때 결과를 가로채는 함수인데 save_model을 쓰면 admin에서 변화만 감지한다.
+    # 이 변화를 감지해서 누가 바꿨는지 혹은 바꿀 때 메일을 보내는 기능 등을 사용할 수 있다 !!
+    def save(self, *args, **kwargs):
+        self.city = str.capitalize(self.city)
+
+        super().save(*args, **kwargs)
 
     def total_rating(self):
         all_reviews = self.reviews.all()
