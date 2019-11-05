@@ -1,0 +1,18 @@
+<!-- 여기서 base를 렌더하거나 직접적으로 쓰진 않지만 골격을 만들어 쓰려고 한다. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>{% block page_name %}{% endblock page_name %} | Nbnb</title>
+  </head>
+  <body>
+    {% include "partials/header.html" %}
+
+    {% block content %} {% endblock content %}
+
+    {% include "partials/footer.html" %}
+  </body>
+</html>

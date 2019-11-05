@@ -72,7 +72,8 @@ ROOT_URLCONF = "config.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        # templates 폴더를 만들고 rooms의 view와 연결시킨 다음 아래 디렉토리를 추가하면 html 페이지가 나온다!
+        "DIRS": [os.path.join(BASE_DIR, "templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
