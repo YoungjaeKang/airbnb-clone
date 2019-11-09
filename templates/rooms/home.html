@@ -12,8 +12,23 @@
 
 {% block content %}
 
-  {% for room in rooms %}
+{% for room in page.object_list %}
   <h1>{{ room.name }} / ${{ room.price }}</h1>
-  {% endfor %}
+{% endfor %}
+
+<h5>
+{% if page.has_previous %}
+<!-- django filter를 사용해보기로 한다. -->
+<a href="?page={{page.previous_page_number}}">Previous</a>
+{% endif %}
+
+Page {{page.number}} of {{page.paginator.num_pages}} 
+
+{% if page.has_next %}
+<a href="?page={{page.next_page_number}}">Next</a>
+{% endif %}
+
+</h5>
+
 
 {% endblock content %}
