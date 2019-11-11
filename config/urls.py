@@ -21,6 +21,7 @@ from django.conf.urls.static import static
 # urlpatterns라는 이름은 바꾸면 안된다.
 urlpatterns = [
     path("", include("core.urls", namespace="core")),
+    path("rooms/", include("rooms.urls", namespace="rooms")),
     path("admin/", admin.site.urls),
 ]
 

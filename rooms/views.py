@@ -1,9 +1,11 @@
 # from math import ceil
-from django.utils import timezone
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
+from django.http import Http404
 
 # from django.shortcuts import render, redirect
 from django.core.paginator import Paginator, EmptyPage
+from django.urls import reverse
+from django.shortcuts import render, redirect
 from . import models
 
 # class based view와 function based view 사이에 논쟁이 많다.
@@ -18,14 +20,28 @@ class HomeView(ListView):
     ordering = "created"
     context_object_name = "rooms"
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        now = timezone.now()
-        context["now"] = now
-        return context
 
-    # page_kwarg = "potato"
+# 1. cbv
+class RoomDetail(DetailView):
 
+    """ RoomDetail Definition """
+
+    model = models.Room
+    # 다양한 attribute를 통해 통제할 수 있다.
+    # 404도 자동으로 띄워준다.
+
+
+"""
+# 2. fbv
+def room_detail(request, pk):
+    try:
+        room = models.Room.objects.get(pk=pk)
+        return render(request, "rooms/detail.html", {"room": room})
+
+    except models.Room.DoesNotExist:
+        # return redirect(reverse("core:home"))
+        raise Http404()  # error는 return이 아니라 raise한다
+"""
 
 """
 2. Django의 도움을 조금만 받기
