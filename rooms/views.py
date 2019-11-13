@@ -1,6 +1,7 @@
 # from math import ceil
 from django.views.generic import ListView, DetailView
 from django.http import Http404
+from django_countries import countries
 
 # from django.shortcuts import render, redirect
 from django.core.paginator import Paginator, EmptyPage
@@ -31,7 +32,17 @@ class RoomDetail(DetailView):
     # 404도 자동으로 띄워준다.
 
 
-"""
+def search(request):
+    city = request.GET.get("city", "Anywhere")
+    city = str.capitalize(city)
+    room_types = models.RoomType.objects.all()
+    return render(
+        request,
+        "rooms/search.html",
+        {"city": city, "countries": countries, "room_types": room_types},
+    )
+
+
 # 2. fbv
 def room_detail(request, pk):
     try:
@@ -41,7 +52,7 @@ def room_detail(request, pk):
     except models.Room.DoesNotExist:
         # return redirect(reverse("core:home"))
         raise Http404()  # error는 return이 아니라 raise한다
-"""
+
 
 """
 2. Django의 도움을 조금만 받기
