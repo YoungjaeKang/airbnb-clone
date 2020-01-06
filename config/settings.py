@@ -138,3 +138,11 @@ AUTH_USER_MODEL = "users.User"  # 내가 직접 만든 USER MODEL을 쓰기 위�
 MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
 
 MEDIA_URL = "/media/"
+
+# Email Configuration (mailgun)
+
+EMAIL_HOST = "smtp.mailgun.org"
+EMAIL_PORT = "587"
+EMAIL_HOST_USER = os.environ.get("MAILGUN_USERNAME")
+EMAIL_HOST_PASSWORD = os.environ.get("MAILGUN_PASSWORD")
+EMAIL_FROM = "airbnb@sandbox10f1307e2e32402c930c6dab84725ff1.mailgun.org"
