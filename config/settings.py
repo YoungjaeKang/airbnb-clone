@@ -132,6 +132,9 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
+# 이 코드 없이 주소창에 static 폴더 내로 접근하려고 하면 안됨. 보안 문제 때문에 그렇지만 그러면 css파일 또한 가져오지 못한다.
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+
 AUTH_USER_MODEL = "users.User"  # 내가 직접 만든 USER MODEL을 쓰기 위해 이 설정을 해줬다.
 
 # 사진을 저장하기 위한 경로를 설정해 준다.

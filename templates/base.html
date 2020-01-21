@@ -1,11 +1,13 @@
 <!-- 여기서 base를 렌더하거나 직접적으로 쓰진 않지만 골격을 만들어 쓰려고 한다. -->
 
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <title>{% block page_title %}{% endblock page_title %} | Nbnb</title>
   </head>
   <body>
