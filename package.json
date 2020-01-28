@@ -2,10 +2,8 @@
   "name": "airbnb-clone",
   "version": "1.0.0",
   "description": "Cloning Airbnb with Python, Django, Tailwind and more...",
-  "main": "index.js",
   "scripts": {
-    "css": "gulp",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "css": "gulp"
   },
   "repository": {
     "type": "git",
