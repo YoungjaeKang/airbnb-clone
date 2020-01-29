@@ -132,3 +132,10 @@ class Room(core_models.TimeStampedModel):
                 all_ratings += review.rating_average()
             return all_ratings / len(all_reviews)
         return 0
+
+    def first_photo(self):
+        print(self.photos.all()[:1])
+        # 쿼리셋(어레이)에서 뭔가를 꺼낼 때 one, two, three, four = array[] 로 뽑을 수 있다. 사진은 1장이지만 배열로 되어 있기 때문에 ,를 붙여준다.
+        photo, = self.photos.all()[:1] 
+        return photo.file.url
+        
