@@ -20,14 +20,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "gy%o8&*4&li4p&pxqxqe!!(k*_k6=r7dh=2!bvx=r%+5@f*6mb"
+SECRET_KEY = os.environ.get("DJANGO_SECRET")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG TRUE일 경우 에러가 떴을 때 나오는 노란 설명이다.
 # 배포하고 나면 보여져서는 안된다.
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [".elasticbeanstalk.com", ""]
 
 # Application definition
 
