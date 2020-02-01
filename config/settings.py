@@ -25,7 +25,7 @@ SECRET_KEY = "gy%o8&*4&li4p&pxqxqe!!(k*_k6=r7dh=2!bvx=r%+5@f*6mb"
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG TRUE일 경우 에러가 떴을 때 나오는 노란 설명이다.
 # 배포하고 나면 보여져서는 안된다.
-DEBUG = bool(os.environ.get("DEBUG"))
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -90,7 +90,7 @@ WSGI_APPLICATION = "config.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-if DEBUG:
+if DEBUG is False:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
